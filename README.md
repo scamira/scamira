@@ -4,6 +4,14 @@
 >
 > An open-source tool for detecting predatory info-marketing patterns on Japanese social media.
 
+## 🚀 ライブデモ
+
+**https://scamira.scamira.workers.dev**
+
+![Scamira screenshot](public/og.png)
+
+気になるInstagramリールやX投稿のキャプションをペーストするだけで、誘導の構造・パターン・スコアを可視化します。
+
 ## なぜ作ったか
 
 SNSには、情報格差を利用して初心者から教材費を巻き上げる「情弱ビジネス」が氾濫しています。Manychatによる自動DM、根拠不明な収入実績、希少性アピール、PLR/MRR再販ビジネス——これらは見た目こそ違えど、構造的に共通したパターンを持っています。
@@ -12,7 +20,7 @@ Scamiraはその構造を**透明な検出ロジック**で可視化し、誰も
 
 「情弱ビジネス」を駆逐したいわけではありません。判断材料を、本来買い手側に提供されるべき情報を、提供したいだけです。
 
-## 何ができるか（MVP）
+## 何ができるか（v0.1）
 
 - SNS投稿のテキストをペースト → AI分析で「情弱ビジネス度」を0〜100でスコアリング
 - 検出されたパターンを **強・中・弱** のシグナル区分と根拠引用付きで表示
@@ -23,11 +31,15 @@ Scamiraはその構造を**透明な検出ロジック**で可視化し、誰も
 - **Frontend**: TailwindCSS (CDN), Vanilla JS
 - **Backend**: Cloudflare Workers (TypeScript)
 - **LLM**: Anthropic Claude Haiku 4.5
-- **Hosting**: Cloudflare (Pages + Workers)
+- **Hosting**: Cloudflare Workers + Static Assets
 
 ## ローカル開発
 
 ```bash
+# クローン
+git clone https://github.com/guernika54/scamira.git
+cd scamira
+
 # 依存関係インストール
 npm install
 
@@ -47,18 +59,17 @@ npm run dev
 - **断定しない**：「詐欺」「悪質」と判定するものではなく、パターンの可視化が目的
 - **異議申立て歓迎**：誤判定があれば Issue または PR で指摘してください
 
-## 開発状況
-
-🚧 MVP開発中（2026-05-07 開始）
+## ロードマップ
 
 - [x] 検出プロンプト
 - [x] Cloudflare Workers バックエンド
 - [x] フロントエンド（テキストペースト型）
-- [ ] 公開デプロイ
+- [x] 公開デプロイ（v0.1 — open beta）
 - [ ] URL自動取得（Instagram, X, TikTok, YouTube）
 - [ ] 分析履歴の保存
 - [ ] アカウント単位の集計
-- [ ] Chrome拡張
+- [ ] Chrome拡張機能
+- [ ] カスタムドメイン
 
 ## ライセンス
 
@@ -66,4 +77,4 @@ npm run dev
 
 ## コントリビュート
 
-Issue / PR 大歓迎。情弱ビジネスのパターンを見つけたら、検出ロジック改善のために共有してください。
+Issue / PR 大歓迎。情弱ビジネスの新しいパターンを見つけたら、[`src/prompts.ts`](src/prompts.ts) の検出ロジック改善のために共有してください。
