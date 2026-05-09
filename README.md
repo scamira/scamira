@@ -6,7 +6,7 @@
 
 ## 🚀 ライブデモ
 
-**https://scamira.scamira.workers.dev**
+**https://scamira.com**
 
 ![Scamira screenshot](public/og.png)
 
